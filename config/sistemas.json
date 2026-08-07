@@ -1,0 +1,87 @@
+{
+  "sistemas": [
+    {
+      "nome": "Gemini 3 Omni Flash",
+      "provedor": "Google (AI Creative Studio / Google Labs)",
+      "formato": ["9:16", "16:9"],
+      "duracao_s": "3-10 (nativo)",
+      "resolucao": "720p, 24 FPS",
+      "audio": "nativo sincronizado (escrever no prompt)",
+      "referencias": "video ate 30s, <FIRST_FRAME>, <IMAGE_REF_N>",
+      "timecode": "suportado [0-3s] [3-6s] [6-10s]",
+      "meta_prompting": "suportado (frases oficiais verbatim)",
+      "cena_unica": "In a single unbroken scene / No scene cuts",
+      "idioma": "ingles total; outros variaveis",
+      "prompt_template": "prompts/gemini-omni-flash.md",
+      "notas": "modelo multimodal nativo: texto+imagem+video+audio"
+    },
+    {
+      "nome": "Veo 3.1",
+      "provedor": "Google (Flow / Vertex)",
+      "formato": ["16:9", "9:16", "1:1"],
+      "duracao_s": "8s (nativo, extensoes)",
+      "resolucao": "1080p",
+      "audio": "nativo (dialogo com dois-pontos, SFX rotulado)",
+      "referencias": "Reference Images + Character Sheets",
+      "formula": "5 partes obrigatorias / 7 slots campeao",
+      "prompt_template": "prompts/veo-31.md",
+      "notas": "variantes Lite/Fast/Quality; consistencia de personagem forte"
+    },
+    {
+      "nome": "Seedance 2.0",
+      "provedor": "Doubao / ByteDance",
+      "formato": ["16:9", "9:16", "1:1"],
+      "duracao_s": "5 / 10 / 15",
+      "resolucao": "1080p",
+      "audio": "nativo",
+      "referencias": "imagem de referencia, video de referencia",
+      "formula": "8 elementos (sujeito+acao+cena+luz+camera+estilo+qualidade+restricoes)",
+      "prompt_template": "prompts/seedance-20.md",
+      "notas": "multi-shot via storyboard; extension sem salto"
+    },
+    {
+      "nome": "Kling 3.0",
+      "provedor": "Kuaishou",
+      "formato": ["16:9", "9:16", "1:1"],
+      "duracao_s": "ate 120",
+      "resolucao": "1080p",
+      "audio": "nativo com sync labial; chinês forte",
+      "referencias": "Motion Brush, image-to-video",
+      "formula": "4 partes basicas / 5 camadas",
+      "prompt_template": "prompts/kling-30.md",
+      "notas": "melhor compreensao de chines; direcionamento de voz por personagem"
+    },
+    {
+      "nome": "Sora 2",
+      "provedor": "OpenAI",
+      "formato": ["16:9", "9:16", "4:5"],
+      "duracao_s": "4 / 8 / 12 / 16 / 20",
+      "resolucao": "720p / 1080p",
+      "audio": "nativo",
+      "referencias": "image reference, Characters API",
+      "notas": "duracao/resolucao sao parametros de API, nao prosa; 40-80 palavras; extensoes ate 20s",
+      "prompt_template": null
+    },
+    {
+      "nome": "LTX 2.3",
+      "provedor": "Lightricks (open source)",
+      "formato": ["16:9", "9:16"],
+      "duracao_s": "2-10 por clipe",
+      "resolucao": "variavel",
+      "audio": "sem nativo (separado)",
+      "notas": "rodar via scripts da skill ai-film-skills (generate_video_ltx.py)",
+      "prompt_template": null
+    },
+    {
+      "nome": "ComfyUI + AnimateDiff",
+      "provedor": "local / estúdio Gerde",
+      "formato": ["9:16", "16:9"],
+      "duracao": "16 frames @ 8fps (2s) por batch",
+      "resolucao": "512x768",
+      "audio": "sem nativo (adicionar depois)",
+      "modelo": "SD 1.5 + mm_sd_v15_v2.ckpt + ControlNet OpenPose/Depth",
+      "notas": "pipeline oficial Gerde; pos em Topaz Video AI + After Effects",
+      "prompt_template": "prompts/comfyui-animatediff.md"
+    }
+  ]
+}

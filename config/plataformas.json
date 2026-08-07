@@ -1,0 +1,98 @@
+{
+  "grade_plataformas": [
+    {
+      "plataforma": "YouTube Shorts",
+      "formato": "9:16",
+      "resolucao": "1080x1920",
+      "duracao_min_s": 5,
+      "duracao_max_s": 60,
+      "duracao_ideal_s": 30,
+      "fps": 24,
+      "disclosure_ia": "label em posicao proeminente (overlay); desde mai/2026 o YouTube detecta e rotula automaticamente",
+      "observacoes": "Loop-friendly; gancho nos primeiros 1-2s; ultimo frame forte"
+    },
+    {
+      "plataforma": "YouTube long-form",
+      "formato": "16:9",
+      "resolucao": "1920x1080",
+      "duracao_min_s": 60,
+      "duracao_max_s": 3600,
+      "duracao_ideal_s": 480,
+      "fps": 24,
+      "disclosure_ia": "label de IA gerado embutido (nao remover); disclosure na descricao expandida",
+      "observacoes": "Videos mestre multi-cena com continuidade entre cenas de 10s"
+    },
+    {
+      "plataforma": "TikTok",
+      "formato": "9:16",
+      "resolucao": "1080x1920",
+      "duracao_min_s": 5,
+      "duracao_max_s": 600,
+      "duracao_ideal_s": 30,
+      "fps": 30,
+      "disclosure_ia": "creator label ou auto-label/C2PA; auto-label nao pode ser removido",
+      "observacoes": "Melhores tempos: 21-34s; tendencias de audio; copy + hashtags na legenda"
+    },
+    {
+      "plataforma": "Instagram Reels",
+      "formato": "9:16",
+      "resolucao": "1080x1920",
+      "duracao_min_s": 3,
+      "duracao_max_s": 90,
+      "duracao_ideal_s": 30,
+      "fps": 30,
+      "disclosure_ia": "AI info visivel por sinais da industria (C2PA/IPTC) ou disclosure manual",
+      "observacoes": "Metadados C2PA preservados; nao recortar para 4:5 em feed"
+    },
+    {
+      "plataforma": "Facebook / Threads",
+      "formato": "16:9",
+      "resolucao": "1920x1080",
+      "duracao_min_s": 3,
+      "duracao_max_s": 240,
+      "duracao_ideal_s": 60,
+      "fps": 30,
+      "disclosure_ia": "AI info obrigatoria para conteudo fotorrealista",
+      "observacoes": "Reels tambem aceitos em 9:16"
+    },
+    {
+      "plataforma": "X (Twitter)",
+      "formato": "16:9",
+      "resolucao": "1920x1080",
+      "duracao_min_s": 3,
+      "duracao_max_s": 140,
+      "duracao_ideal_s": 60,
+      "fps": 30,
+      "disclosure_ia": "recomendada; politica de midia sintetica exige rotulo em fotorrealista",
+      "observacoes": "Formato 9:16 tambem aceito para previews"
+    },
+    {
+      "plataforma": "LinkedIn",
+      "formato": "16:9",
+      "resolucao": "1920x1080",
+      "duracao_min_s": 3,
+      "duracao_max_s": 600,
+      "duracao_ideal_s": 90,
+      "fps": 30,
+      "disclosure_ia": "recomendada para conteudo profissional fotorrealista",
+      "observacoes": "Legendado; tom profissional"
+    },
+    {
+      "plataforma": "WhatsApp Status",
+      "formato": "9:16",
+      "resolucao": "1080x1920",
+      "duracao_min_s": 1,
+      "duracao_max_s": 30,
+      "duracao_ideal_s": 15,
+      "fps": 30,
+      "disclosure_ia": "recomendada",
+      "observacoes": "Sem som de fundo por padrao em muitos dispositivos"
+    }
+  ],
+  "formatos": {
+    "9:16": { "uso": "vertical (Shorts, TikTok, Reels, Status)", "resolucao": "1080x1920" },
+    "16:9": { "uso": "horizontal (long-form, X, LinkedIn, Facebook)", "resolucao": "1920x1080" },
+    "1:1": { "uso": "quadrado (feed Instagram, Threads)", "resolucao": "1080x1080" },
+    "4:5": { "uso": "retrato feed (Instagram)", "resolucao": "1080x1350" }
+  }
+}
