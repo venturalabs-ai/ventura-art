@@ -1,5 +1,9 @@
 # Ventura Art
 
+![MIT](https://img.shields.io/github/license/chamseddinehiddoud/ventura-art)
+![stars](https://img.shields.io/github/stars/chamseddinehiddoud/ventura-art)
+![forks](https://img.shields.io/github/forks/chamseddinehiddoud/ventura-art)
+
 Agente de criação de arte e animação generativa do estúdio Gerde. Produz
 vídeos para **todas as principais plataformas** (YouTube, TikTok, Instagram,
 Facebook, X, LinkedIn, WhatsApp) usando os principais sistemas de geração
