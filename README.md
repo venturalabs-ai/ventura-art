@@ -52,3 +52,35 @@ neon), com temas de água/onda/costa, dança e espiritualidade. Detalhes em
 
 Frase-guia: **"Surrealismo em pintura em movimento: texturas físicas sobre
 paleta dramática, com temas de água/onda/costa, dança e espiritualidade."**
+
+## Arquitetura Token-Efficient & Regenerative
+
+Este sistema foi projetado sob três princípios fundamentais:
+
+1. **Economia de Tokens** — maximizar valor por token gasto  
+2. **Loop de Alto Rendimento** — cada ciclo deve justificar o consumo  
+3. **Comportamento Regenerativo** — o sistema se reconstrói melhor a cada execução
+
+### Ciclo Principal: Explore → Compile → Replay
+
+| Fase | Descrição | Consumo de Tokens |
+|------|-----------|-------------------|
+| **Explore** | Modelo forte descobre o melhor caminho | Alto (único) |
+| **Compile** | Transforma o caminho em skill determinística | Baixo |
+| **Replay** | Executa a skill sem raciocínio completo | Mínimo / Zero |
+| **Regenerate** | Quando o domínio muda, regenera a skill | Sob demanda |
+
+### Regras de Engenharia
+
+- **Token Budget** explícito por especialista e por etapa
+- **Context Engineering** + **Context Compaction** em todas as passagens
+- **Context Firewall** entre sub-agentes (cada um só recebe o necessário)
+- **Prefix Caching** com system prompt estável
+- **Yield-based Stop Condition** (para quando o valor não justifica mais tokens)
+- **Skill Distillation** após caminhos bem-sucedidos
+
+### Resultado esperado
+
+- Redução drástica de tokens em execuções recorrentes
+- Qualidade mantida ou superior
+- Sistema que se auto-otimiza com o uso
