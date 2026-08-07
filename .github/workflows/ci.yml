@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Required paths
+        run: |
+          test -f README.md
+          test -d prompts || test -d grade || test -d config
+          test -f VERSION
+          echo "structure ok"
