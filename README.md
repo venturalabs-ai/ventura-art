@@ -1,90 +1,82 @@
 # Ventura Art
 
-![MIT](https://img.shields.io/github/license/chamseddinehiddoud/ventura-art)
-![stars](https://img.shields.io/github/stars/chamseddinehiddoud/ventura-art)
-![forks](https://img.shields.io/github/forks/chamseddinehiddoud/ventura-art)
+[![License](https://img.shields.io/github/license/venturalabs-ai/ventura-art)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/venturalabs-ai/ventura-art)](https://github.com/venturalabs-ai/ventura-art/stargazers)
+[![Forks](https://img.shields.io/github/forks/venturalabs-ai/ventura-art)](https://github.com/venturalabs-ai/ventura-art/forks)
 
-Agente de criação de arte e animação generativa do estúdio Gerde. Produz
-vídeos para **todas as principais plataformas** (YouTube, TikTok, Instagram,
-Facebook, X, LinkedIn, WhatsApp) usando os principais sistemas de geração
-(Gemini 3 Omni Flash, Veo 3.1, Seedance 2.0, Kling 3.0, Sora 2, LTX 2.3,
-ComfyUI + AnimateDiff), com o **usuário no controle total da configuração**:
-grade, sistema, tempo, formato e conformidade de IA.
+Framework de prompts, configuração e documentação para **arte, vídeo e animação generativa com IA**, com foco em consistência, controle de formato e adaptação entre plataformas.
 
-## O usuário escolhe
+## Objetivo
 
-| Escolha | Opções | Onde vive |
-|---|---|---|
-| **Plataforma** | YouTube Shorts, YouTube long-form, TikTok, Instagram Reels, Facebook, X, LinkedIn, WhatsApp | `config/plataformas.json` |
-| **Sistema** | Gemini 3 Omni Flash, Veo 3.1, Seedance 2.0, Kling 3.0, Sora 2, LTX 2.3, ComfyUI + AnimateDiff | `config/sistemas.json` |
-| **Tempo** | 3–10s (Omni), 5/10/15s (Seedance), 4/8/12/16/20s (Sora), até 2 min (Kling), 16 frames @ 8fps (ComfyUI) | `config/sistemas.json` |
-| **Formato** | 9:16 vertical, 16:9 horizontal, 1:1 quadrado, 4:5 retrato | `config/plataformas.json` |
-| **Grade** | Cena única, vídeo mestre multi-cena com continuidade (last frame → `<FIRST_FRAME>`), grid de cenas | `grade/config-usuario.md` |
-| **Áudio** | Nativo do modelo, TTS, música, silent | prompts de cada sistema |
-| **Conformidade** | Disclosure de IA obrigatório por plataforma | `conformidade/divulgacao-ia.md` |
-
-Fluxo: preencha o formulário em `grade/config-usuario.md`, escolha a
-plataforma e o sistema, use o template de prompt correspondente.
+Centralizar decisões que normalmente ficam espalhadas entre prompts: plataforma, modelo, duração, proporção, áudio, continuidade de cenas e requisitos de divulgação de conteúdo gerado por IA.
 
 ## Estrutura
 
-```
+```text
 ventura-art/
 ├── README.md
+├── LICENSE
 ├── config/
-│   ├── plataformas.json        # grade de formatos, durações e disclosure por plataforma
-│   └── sistemas.json           # catálogo de modelos: capacidades, durações, fórmulas
+│   ├── plataformas.json
+│   └── sistemas.json
 ├── grade/
-│   └── config-usuario.md       # formulário: grade, sistema, tempo, formato, áudio, divulgação
+│   └── config-usuario.md
 ├── prompts/
-│   ├── template-mestre.md      # anatomia universal de prompt de vídeo
-│   ├── gemini-omni-flash.md    # 3-10s, 9:16, áudio nativo, timecode, meta prompting
-│   ├── veo-31.md               # fórmula oficial 5 partes / 7 slots
-│   ├── seedance-20.md          # fórmula 8 elementos + storyboard multi-cena
-│   ├── kling-30.md             # 4 partes básicas / 5 camadas, até 2 min
-│   └── comfyui-animatediff.md  # workflow API JSON: SD1.5 + AnimateDiff + ControlNet
+│   ├── template-mestre.md
+│   ├── gemini-omni-flash.md
+│   ├── veo-31.md
+│   ├── seedance-20.md
+│   ├── kling-30.md
+│   └── comfyui-animatediff.md
 └── conformidade/
-    └── divulgacao-ia.md        # regras Google, YouTube, TikTok, Meta, X, LinkedIn
+    └── divulgacao-ia.md
 ```
 
-## DNA visual (estúdio Gerde)
+## Fluxo de uso
 
-Surrealismo em pintura em movimento — texturas físicas (papel em camadas,
-tecido, aquarela, neon) sobre paleta dramática (teal profundo × coral × ciano
-neon), com temas de água/onda/costa, dança e espiritualidade. Detalhes em
-`prompts/framework-hiperrealismo.md` do estúdio.
+```text
+1. Defina plataforma e formato.
+2. Escolha o sistema/modelo de geração.
+3. Defina duração, áudio e estrutura de cenas.
+4. Use o template correspondente.
+5. Valide continuidade, legibilidade e disclosure antes da publicação.
+```
 
-Frase-guia: **"Surrealismo em pintura em movimento: texturas físicas sobre
-paleta dramática, com temas de água/onda/costa, dança e espiritualidade."**
+## Continuidade entre cenas
 
-## Arquitetura Token-Efficient & Regenerative
+Para produções multi-cena, trate como requisitos explícitos:
 
-Este sistema foi projetado sob três princípios fundamentais:
+- identidade do personagem;
+- figurino e proporções;
+- direção de luz;
+- lente e linguagem de câmera;
+- posição de objetos principais;
+- transição do último frame para o primeiro frame da cena seguinte.
 
-1. **Economia de Tokens** — maximizar valor por token gasto  
-2. **Loop de Alto Rendimento** — cada ciclo deve justificar o consumo  
-3. **Comportamento Regenerativo** — o sistema se reconstrói melhor a cada execução
+## Conformidade
 
-### Ciclo Principal: Explore → Compile → Replay
+As regras de plataformas e modelos mudam com frequência. O material em `conformidade/` deve ser tratado como referência operacional e revisado antes de campanhas ou publicações importantes.
 
-| Fase | Descrição | Consumo de Tokens |
-|------|-----------|-------------------|
-| **Explore** | Modelo forte descobre o melhor caminho | Alto (único) |
-| **Compile** | Transforma o caminho em skill determinística | Baixo |
-| **Replay** | Executa a skill sem raciocínio completo | Mínimo / Zero |
-| **Regenerate** | Quando o domínio muda, regenera a skill | Sob demanda |
+## Modelos e marcas
 
-### Regras de Engenharia
+Nomes de modelos e plataformas são utilizados apenas para identificar compatibilidade de workflow e formato. Este projeto não implica parceria, certificação ou afiliação com os respectivos fornecedores.
 
-- **Token Budget** explícito por especialista e por etapa
-- **Context Engineering** + **Context Compaction** em todas as passagens
-- **Context Firewall** entre sub-agentes (cada um só recebe o necessário)
-- **Prefix Caching** com system prompt estável
-- **Yield-based Stop Condition** (para quando o valor não justifica mais tokens)
-- **Skill Distillation** após caminhos bem-sucedidos
+## Arquitetura de eficiência
 
-### Resultado esperado
+**Explore → Compile → Replay → Regenerate**
 
-- Redução drástica de tokens em execuções recorrentes
-- Qualidade mantida ou superior
-- Sistema que se auto-otimiza com o uso
+Prompts bem-sucedidos podem ser convertidos em templates reutilizáveis para reduzir retrabalho e manter consistência entre produções.
+
+## Status
+
+Repositório de **framework, prompts e documentação**. Não é um motor próprio de geração de vídeo; a renderização é executada pelas plataformas e modelos escolhidos pelo usuário.
+
+## Licença
+
+MIT — consulte [LICENSE](LICENSE).
+
+## Autor
+
+Wemerson Mota de Oliveira — Ventura Labs AI
+
+[GitHub](https://github.com/venturalabs-ai) · [LinkedIn](https://www.linkedin.com/in/wemerson-mota-de-oliveira-81aa8226/)
