@@ -1,6 +1,6 @@
 ---
 name: prompt-compile
-description: Convert a proven Ventura Art prompt workflow into a reusable repository template with stable variables and replay instructions. Use when a prompt has succeeded repeatedly and should stop being rebuilt from scratch. Do not use during first-time exploration or when requirements are still changing rapidly.
+description: Convert a proven Ventura Art prompt workflow into a reusable repository template with stable variables and replay instructions. Use when a prompt has succeeded repeatedly and should stop being rebuilt from scratch. Do not use when the workflow is in first-time exploration or requirements are still changing rapidly.
 ---
 
 # Prompt compile
