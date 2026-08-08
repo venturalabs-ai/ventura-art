@@ -1,6 +1,6 @@
 ---
 name: scene-continuity
-description: Build or review multi-scene Ventura Art prompts for character wardrobe camera light object and transition continuity. Use when a production spans multiple generated scenes that must match visually. Do not use for a single independent shot or platform syntax conversion.
+description: Build or review multi-scene Ventura Art prompts for character wardrobe camera light object and transition continuity. Use when a production spans multiple generated scenes that must match visually. Do not use when the request is a single independent shot or only a platform syntax conversion.
 ---
 
 # Scene continuity
